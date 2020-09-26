@@ -1,0 +1,26 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+apply plugin: 'application'
+
+group 'com.github.bazpiyo'
+version '1.0-SNAPSHOT'
+
+mainClassName = "com.github.bazpiyo.clitosql.MainKt"
+
+repositories {
+    mavenCentral()
+}
+
+shadowJar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+}
